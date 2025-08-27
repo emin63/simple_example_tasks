@@ -24,7 +24,7 @@ jobs:
     
     - name: Install ox_task project
       run: |
-        uv pip install --system git+https://github.com/emin63/ox_task.git
+        uv pip install --system git+https://github.com/aocks/ox_task.git
     
     - name: Run ox_task
       env:
