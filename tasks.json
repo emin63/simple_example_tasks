@@ -1,0 +1,22 @@
+{
+  "envs": {
+    "simple_python": {
+      "requirements": [],
+      "variables": {}
+    }
+  },
+  "jobs": {
+    "run_pyscript": {
+      "description": ["Example of just running a python script from GitHub.",
+		      "We do not provide a notifier as we assume that the",
+		      "script itself will handle notifications."],
+      "env": "simple_python",
+      "note": "",
+      "timeout": 10,
+      "command": [
+	"ox_task", "pyscript", "src/alert_rain.py"
+	]
+    }
+  },
+  "notes": {}
+}
