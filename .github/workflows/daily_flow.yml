@@ -2,14 +2,16 @@ name: Run ox_task Daily
 
 on:
   schedule:
-    # Run at 8:00 AM UTC every day
+    # Run at 8:00 AM every day (as controlled by timezone in TZ env)
     - cron: '0 8 * * *'
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
   run-ox-task:
     runs-on: ubuntu-latest
-    
+    env:
+      TZ: America/New_York
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
