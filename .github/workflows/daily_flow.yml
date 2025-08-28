@@ -34,7 +34,7 @@ jobs:
         # chance of rain. Email paramters are read from GitHub secrets.
         LATITUDE: 42.361145
         LONGITUDE: -71.057083
-        RAIN_ALERT:  50
+        RAIN_ALERT:  1
         TO_EMAIL: ${{ secrets.GMAIL_TO_EMAIL }}
         FROM_EMAIL: ${{ secrets.GMAIL_FROM_SECRET }}
         GMAIL_APP_PASSWD: ${{ secrets.GMAIL_APP_PASSWD }}
