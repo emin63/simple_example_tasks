@@ -37,7 +37,7 @@ jobs:
         # scripts like weather_alert.py and news_alert.py referenced
         # in the tasks.json file.
         TO_EMAIL: ${{ secrets.TO_EMAIL }}
-        FROM_EMAIL: ${{ secrets.FROM_SECRET }}
+        FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
         GMAIL_APP_PASSWD: ${{ secrets.GMAIL_APP_PASSWD }}
       run: |
         ox_task run tasks.json
