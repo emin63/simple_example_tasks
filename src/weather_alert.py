@@ -3,6 +3,7 @@
 Must provide environment variables to configure (see `get_vars`) function.
 """
 
+import logging
 import os
 
 import requests
@@ -27,6 +28,7 @@ def get_vars():
             ):
         value = os.environ.get(name, default)
         if not value and not default:
+            logging.error('env list is {list(os.environ)}')
             raise ValueError(f'Must provide env var {name} as {reason}.')
         my_vars[name] = value
     return my_vars
