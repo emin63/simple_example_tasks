@@ -1,20 +1,37 @@
 {
+  "description": [
+    "See README in https://github.com/aocks/ox_task for details.",    
+    "This is an example of how to define which tasks to run.",
+    "The weather alert task references a local script relative to",
+    "the working directory where the task runs while the news alert",
+    "task illustrates how to download a script from GitHub and run that.",
+    "",
+    "Note: you will need to setup TO_EMAIL, FROM_EMAIL, and GMAIL_APP_PASSWD",
+    "secrets in GitHub (see the README for this project for details)."
+  ],
   "envs": {
     "simple_python": {
       "requirements": [],
       "variables": {}
-    }
+    },
+    "python_feedparser": {
+      "requirements": ["feedparser"],
+      "variables": {}
+    }    
   },
   "jobs": {
-    "run_pyscript": {
-      "description": ["Example of just running a python script from GitHub.",
-		      "We do not provide a notifier as we assume that the",
-		      "script itself will handle notifications."],
+    "weather alert": {
       "env": "simple_python",
-      "note": "",
-      "timeout": 10,
       "command": [
-	"ox_task", "pyscript", "--path", "src/alert_rain.py"
+	"ox_task", "pyscript",
+	"--path", "${PWD}/src/weather_alert.py"
+	]
+    },
+    "news alert": {
+      "env": "python_feedparser",
+      "command": [
+	"ox_task", "pyscript", "--github-url",
+	"https://github.com/emin63/simple_example_tasks/blob/main/src/news_alert.py"
 	]
     }
   },
