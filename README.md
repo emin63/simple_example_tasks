@@ -2,7 +2,7 @@
 # Introduction
 
 This is a simple project to show how you can use
-[https://github.com/aocks/ox_task](ox_task) to easily and
+[ox_task](https://github.com/aocks/ox_task) to easily and
 automatically run personal tasks in the cloud using GitHub actions.
 
 With a few simple steps you can configure your own weather alerts or
