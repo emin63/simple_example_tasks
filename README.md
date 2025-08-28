@@ -5,6 +5,18 @@ This is a simple project to show how you can use
 [https://github.com/aocks/ox_task](ox_task) to easily and
 automatically run personal tasks in the cloud using GitHub actions.
 
+With a few simple steps you can configure your own weather alerts or
+news alerts or other computing tasks.
+
+## Benefits
+
+Some benefits of using `ox_task` with GitHub actions include:
+
+  1. Programmers can easily create simple scripts or complex commands which run in the cloud (including a generous amount of free computing minutes from GitHub).
+  2. Non-programmers can easily fork examples and customize them or ask LLMs like ChatGPT, Gemini, or Claude to generate simple python scripts.
+     - The benefit of `ox_task` with GitHub actions is that you can easily get your desired scripts running the cloud.
+  3. Secret management, logs, etc., are generally easier than other cloud platforms.
+
 # Usage
 
 To try this out, do the following:
@@ -26,3 +38,12 @@ time each day.
 You can test the workflow by going to the `Actions` and manually
 triggering it (see
 [GitHub docs](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow)).
+
+If you want to customize how the alerts work, you have a few choices:
+
+  1. Add environment variable definitions in your workflow file to control things like `LATITUDE`, `LONGITUDE`, `HOT_ALERT`, `COLD_ALERT`, etc., for the weather alert and things like `FEEDS` or `KEYWORDS` for the news alert.
+  2. Modify the python scripts directly.
+  3. Ask an AI like ChatGPT, Claude, or Gemini to make the modifications for you.
+  
+  
+
