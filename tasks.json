@@ -14,7 +14,7 @@
       "note": "",
       "timeout": 10,
       "command": [
-	"ox_task", "pyscript", "src/alert_rain.py"
+	"ox_task", "pyscript", "--path", "src/alert_rain.py"
 	]
     }
   },
