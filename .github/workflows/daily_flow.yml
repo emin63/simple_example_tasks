@@ -4,7 +4,7 @@ on:
   schedule:
     # Run at 8:00 AM every day (as controlled by timezone in TZ env)
     - cron: '0 8 * * *'
-  workflow_dispatch:  # Allows manual triggering
+  workflow_dispatch:  # Allows manual trigger
 
 jobs:
   run-ox-task:
