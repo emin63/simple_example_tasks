@@ -1,0 +1,43 @@
+name: Run ox_task Daily
+
+on:
+  schedule:
+    # Run at 9:00 AM every day (as controlled by timezone in TZ env)
+    - cron: '0 9 * * *'
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  run-ox-task:
+    runs-on: ubuntu-latest
+    env:
+      TZ: America/New_York
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'  # Adjust version as needed
+    
+    - name: Install uv
+      run: pip install uv
+    
+    - name: Install ox_task project
+      run: |
+        uv pip install --system git+https://github.com/aocks/ox_task.git
+    
+    - name: Run ox_task
+      env:
+        # Email paramters are read from GitHub secrets.
+	# You can also provide things like TEMPERATURE_UNIT,
+	# LATITUDE, LONGITUDE, RAIN_ALERT, HOT_ALERT, COLD_ALERT,
+	# KEYWORDS, FEEDS either below are change defaults in
+	# scripts like weather_alert.py and news_alert.py referenced
+	# in the tasks.json file.
+        TO_EMAIL: ${{ secrets.GMAIL_TO_EMAIL }}
+        FROM_EMAIL: ${{ secrets.GMAIL_FROM_SECRET }}
+        GMAIL_APP_PASSWD: ${{ secrets.GMAIL_APP_PASSWD }}
+      run: |
+        ox_task run tasks.json
