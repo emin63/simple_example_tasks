@@ -20,14 +20,14 @@
     }    
   },
   "jobs": {
-    "weather alert": {
+    "weather_alert": {
       "env": "simple_python",
       "command": [
 	"ox_task", "pyscript",
 	"--path", "${PWD}/src/weather_alert.py"
 	]
     },
-    "news alert": {
+    "news_alert": {
       "env": "python_feedparser",
       "command": [
 	"ox_task", "pyscript", "--github-url",
