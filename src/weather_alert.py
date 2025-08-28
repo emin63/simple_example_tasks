@@ -28,8 +28,7 @@ def get_vars():
             ):
         value = os.environ.get(name, default)
         if not value and not default:
-            logging.error('missing value for %s; env list is %s', name,
-                          list(sorted(os.environ)))
+            logging.error('missing value for %s (got %s of len %s); env list is %s', name, value, len(value) if value is not None else '<None>',list(sorted(os.environ)))
             raise ValueError(f'Must provide env var {name} as {reason}.')
         my_vars[name] = value
     return my_vars
