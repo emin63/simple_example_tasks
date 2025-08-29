@@ -2,8 +2,10 @@ name: Run ox_task Daily
 
 on:
   schedule:
-    # Run at 8:00 AM every day (as controlled by timezone in TZ env)
-    - cron: '0 8 * * *'
+    # Run at 8:01 AM EST every day (which is 12 UTC). GitHub does
+    # not allow setting timezone for schedule yet so must use UTC.
+    # See https://github.com/orgs/community/discussions/13454
+    - cron: '1 12 * * *'
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
